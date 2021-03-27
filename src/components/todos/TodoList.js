@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import store from '../../store';
-import { Todo } from './Todo';
+import Todo from './Todo';
 import GeneralTodoFunctions from './GeneralTodoFunctions';
 
 class TodoList extends React.Component {

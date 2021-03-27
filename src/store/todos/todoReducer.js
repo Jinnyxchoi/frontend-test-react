@@ -23,6 +23,19 @@ export default function todoReducer(state = initialState, action) {
           status: 'complete',
         };
       });
+    case 'toggle_status':
+      return state.map((each) => {
+        if (each.content === action.todo.content) {
+          return {
+            ...each,
+            status: each.status === 'complete' ? 'incomplete' : 'complete',
+          };
+        }
+        return each;
+      });
+    case 'remove_todo':
+      return state.filter((each) => each.content !== action.todo.content);
+
     default:
       return state;
   }
