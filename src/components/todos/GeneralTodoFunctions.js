@@ -31,7 +31,7 @@ function GeneralTodoFunctions(props) {
           <input
             onChange={props.handleChange}
             name="newTodo"
-            value={props.localState}
+            value={props.newTodo}
             className="shadow appearance-none border rounded w-full py-2 px-3 mr-4 text-gray-darker"
             placeholder="Add Todo"
           />

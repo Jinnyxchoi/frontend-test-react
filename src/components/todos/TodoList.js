@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Todo from './Todo';
-import GeneralTodoFunctions from './GeneralTodoFunctions';
+import { Todo, GeneralTodoFunctions } from './';
 
 class TodoList extends React.Component {
   constructor() {
@@ -20,7 +19,6 @@ class TodoList extends React.Component {
     });
   };
   handleSubmit = (evt) => {
-    console.log('here?');
     evt.preventDefault();
     const newTodo = this.state.newTodo;
     this.props.addNewTodo(newTodo);
@@ -31,14 +29,12 @@ class TodoList extends React.Component {
 
   render() {
     const todos = this.props.todos || [];
-    const listComplete = !this.props.todos.some(
-      (todo) => todo.status === 'incomplete'
-    );
+
     return (
       <div className="h-100 w-full flex items-center justify-center bg-teal-lightest font-sans">
         <div className="bg-white rounded shadow p-6 m-4 w-full lg:w-2/5">
           <GeneralTodoFunctions
-            localState={this.state.newTodo}
+            {...this.state}
             handleSubmit={this.handleSubmit}
             handleChange={this.handleChange}
           />
